@@ -1,0 +1,145 @@
+*** What are Methods. ***
+>Methods are the member of classes which provides the functionality for the classes.
+>To manage in monolith program method are introduced.
+>This is called method because it is not modular programming it is a object oriented programming
+
+
+*** How to write a Method. ***
+> returnType methodName(parameter List){
+    
+    //Body of method
+
+}
+
+*** Code ***
+
+Class Main{
+
+//Method-1 of calling Method.
+//If method is called ffrom static method we have to write static keyword.
+static int maxValue(int x, int y){
+    if(x>y){
+        return x;
+    }
+    else{
+        return y;
+    }
+}
+public static void main(String args[]){
+    int a = 10, b=15, c;
+    c = maxValue(a,b);
+    System.out.println(c);
+}
+
+Method-2 of calling Method.
+//In this case we don't need to use static keyword.
+int maxValue(int x, int y){
+    if(x>y){
+        return x;
+    }
+    else{
+        return y;
+    }
+}
+public static void main(String args[]){
+    Main m = new Main();
+    system.out.println(m.maxValue(a,b));
+}
+}
+
+
+*** Parameter Passing ***
+>returnType methodName(parameter List){  //These are formal parameters.
+    
+    //Body of method
+
+}
+public static void main(String args[]){
+    methodName(a,b); //Actual parameter.
+}
+
+>Formal parameter can't change the value of actual parameter.
+>Change in formal parameter actual parameter are not change.
+
+*** Passing Object as Patameter ***
+
+// When the objects are passed as parameters then the object is not passed it's reference is passed and when method modifying the object the actual object is modified.
+// Return type can be an object also even an array object also.
+
+
+*** Program:--Object passed as parameter ***
+
+static void change(int A[],int index,int value){
+    A[index] = value;
+}
+public static void main(){
+    int A[] = {2,3,4,5};
+    change(A,2,20);
+    for(int x:A){
+        System.out.print(x);
+    }
+}
+
+//In java when you passed primatives it pass like value, but when you pass object it pass like reference.
+
+>Note:---In Java there is only one method:--- Content of actual parameter is copied in formal parameter.
+
+*** Method Overloading ***
+
+>Writing one method having same name but diffrence are there in parameter(eg... Number of parameter,datatype of parameter).
+
+ // Method 1: add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+// Method 2: add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+// Method 3: add two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+// Method 4: concatenate two strings
+    public String add(String a, String b) {
+        return a + b;
+    }
+
+public static void main(String[] args) {
+    OverloadExample obj = new OverloadExample();
+    System.out.println("add(int, int): " + obj.add(5, 10));            // 15
+    System.out.println("add(int, int, int): " + obj.add(5, 10, 15));   // 30
+    System.out.println("add(double, double): " + obj.add(2.5, 3.7));   // 6.2
+    System.out.println("add(String, String): " + obj.add("Hello, ", "World!")); // Hello, World!
+}
+
+
+*** Variable Arguments ***
+
+> variable arguments (varargs) allow you to pass a variable number of arguments to a method — meaning zero, one, or many arguments of the same type.
+
+ // Method using varargs to accept any number of integers
+    public static int sum(int... numbers) {
+        int total = 0;
+        for (int num : numbers) {
+            total += num;
+        }
+        return total;
+    }
+
+// Another varargs method with different data type
+    public static void printNames(String... names) {
+        for (String name : names) {
+            System.out.println("Hello, " + name + "!");
+        }
+    }
+
+public static void main(String[] args) {
+    System.out.println("Sum of 1, 2, 3: " + sum(1, 2, 3));
+    System.out.println("Sum of 10, 20, 30, 40: " + sum(10, 20, 30, 40));
+    System.out.println("\nGreeting names:");
+    printNames("Navjot", "Aman", "Simran");
+}
